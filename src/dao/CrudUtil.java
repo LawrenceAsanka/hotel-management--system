@@ -1,13 +1,14 @@
-package dao.custom;
+package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-import dbConnection.DBConnection;
+import db.DBConnection;
+
 
 public class CrudUtil {
 
-  public static <T> T execute(String sql, Object... params) throws Exception{
+  public static <T> T execute(String sql, Object... params) throws Exception {
     Connection connection = DBConnection.getInstance().getConnection();
     PreparedStatement pstm = connection.prepareStatement(sql);
     int i = 0;
@@ -15,7 +16,7 @@ public class CrudUtil {
       i++;
       pstm.setObject(i, param);
     }
-    if (sql.startsWith("SELECT")){
+    if (sql.startsWith("SELECT")) {
       return (T) pstm.executeQuery();     // ResultSet
     }
     return (T) ((Boolean) (pstm.executeUpdate() > 0));    // boolean
