@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import business.custom.RoomTypeBo;
+import bo.custom.RoomTypeBo;
 import dao.DAOFactory;
 import dao.DAOType;
 import dao.custom.RoomTypeDAO;

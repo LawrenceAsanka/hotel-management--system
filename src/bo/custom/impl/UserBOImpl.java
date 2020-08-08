@@ -3,7 +3,7 @@ package bo.custom.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import business.custom.UserBO;
+import bo.custom.UserBO;
 import dao.DAOFactory;
 import dao.DAOType;
 import dao.custom.UserDAO;

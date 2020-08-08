@@ -2,7 +2,7 @@ package bo.custom;
 
 import java.util.List;
 
-import business.SuperBO;
+import bo.SuperBO;
 import util.RoomTypeTM;
 
 public interface RoomTypeBo extends SuperBO {

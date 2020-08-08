@@ -3,7 +3,7 @@ package bo.custom;
 import java.sql.Date;
 import java.util.List;
 
-import business.SuperBO;
+import bo.SuperBO;
 import util.ReservationTM;
 import util.RoomTM;
 

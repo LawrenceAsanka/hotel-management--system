@@ -12,10 +12,10 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
 
-import business.BOFactory;
-import business.BOType;
-import business.custom.CheckoutBO;
-import business.custom.ReservationBO;
+import bo.BOFactory;
+import bo.BOType;
+import bo.custom.CheckoutBO;
+import bo.custom.ReservationBO;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;

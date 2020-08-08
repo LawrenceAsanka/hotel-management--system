@@ -7,9 +7,9 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
-import business.BOFactory;
-import business.BOType;
-import business.custom.UserBO;
+import bo.BOFactory;
+import bo.BOType;
+import bo.custom.UserBO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

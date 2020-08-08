@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import business.custom.ReservationBO;
+import bo.custom.ReservationBO;
 import dao.DAOFactory;
 import dao.DAOType;
 import dao.custom.GuestDAO;
@@ -14,7 +14,7 @@ import dao.custom.ReservationDAO;
 import dao.custom.ReservationDetailDAO;
 import dao.custom.RoomDAO;
 import dao.custom.impl.RoomDAOImpl;
-import dbConnection.DBConnection;
+import db.DBConnection;
 import entity.CustomEntity;
 import entity.Guest;
 import entity.Reservation;

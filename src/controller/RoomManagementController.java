@@ -7,10 +7,10 @@ import java.util.List;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 
-import business.BOFactory;
-import business.BOType;
-import business.custom.RoomBO;
-import business.custom.RoomTypeBo;
+import bo.BOFactory;
+import bo.BOType;
+import bo.custom.RoomBO;
+import bo.custom.RoomTypeBo;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
