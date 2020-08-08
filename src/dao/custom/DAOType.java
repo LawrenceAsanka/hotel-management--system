@@ -1,0 +1,6 @@
+package dao.custom;
+
+public enum DAOType {
+
+  CHECKOUT,GUEST,RESERVATION,RESERVATION_DETAIL,ROOM,ROOM_TYPE,USER,QUERY;
+}
