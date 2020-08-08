@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dao.CrudUtil;
+import dao.custom.RoomTypeDAO;
 import entity.RoomType;
 
 public class RoomTypeDAOImpl implements RoomTypeDAO {

@@ -1,4 +1,4 @@
-package dao.custom;
+package dao;
 
 public interface SuperDAO {
 

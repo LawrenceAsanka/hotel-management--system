@@ -1,6 +1,6 @@
-package dao.custom.impl;
+package dao.custom;
 
-import dao.custom.CrudDAO;
+import dao.CrudDAO;
 import entity.Reservation;
 
 public interface ReservationDAO extends CrudDAO<Reservation,String> {

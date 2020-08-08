@@ -3,6 +3,7 @@ package dao.custom.impl;
 import java.util.List;
 
 import dao.CrudUtil;
+import dao.custom.CheckOutDAO;
 import entity.CheckOut;
 
 public class CheckOutDAOImpl implements CheckOutDAO {

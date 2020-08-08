@@ -1,8 +1,8 @@
-package dao.custom.impl;
+package dao.custom;
 
 import java.util.List;
 
-import dao.custom.SuperDAO;
+import dao.SuperDAO;
 import entity.CustomEntity;
 
 public interface QueryDAO extends SuperDAO {

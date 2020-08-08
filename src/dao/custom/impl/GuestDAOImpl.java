@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dao.CrudUtil;
+import dao.custom.GuestDAO;
 import entity.Guest;
 
 public class GuestDAOImpl implements GuestDAO {

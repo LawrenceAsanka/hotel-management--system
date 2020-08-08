@@ -5,10 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dao.CrudUtil;
+import dao.custom.ReservationDetailDAO;
 import entity.ReservationDetail;
 import entity.ReservationDetailPK;
 
-public class ReservationDetailDAOImpl implements dao.custom.impl.ReservationDetailDAO {
+public class ReservationDetailDAOImpl implements ReservationDetailDAO {
 
   @Override
   public List<ReservationDetail> findAll() throws Exception {

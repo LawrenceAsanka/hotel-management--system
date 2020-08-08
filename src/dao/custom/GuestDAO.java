@@ -1,8 +1,8 @@
-package dao.custom.impl;
+package dao.custom;
 
 import java.util.List;
 
-import dao.custom.CrudDAO;
+import dao.CrudDAO;
 import entity.Guest;
 
 public interface GuestDAO extends CrudDAO<Guest,String> {

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dao.CrudUtil;
+import dao.custom.QueryDAO;
 import entity.CustomEntity;
 
 public class QueryDAOImpl implements QueryDAO {

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dao.CrudUtil;
+import dao.custom.UserDAO;
 import entity.User;
 
 public class UserDAOImpl implements UserDAO {

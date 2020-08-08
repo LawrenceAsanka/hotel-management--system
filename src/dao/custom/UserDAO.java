@@ -1,6 +1,7 @@
-package dao.custom.impl;
+package dao.custom;
 
-import dao.custom.CrudDAO;
+import dao.CrudDAO;
+import dao.CrudDAO;
 import entity.User;
 
 public interface UserDAO extends CrudDAO<User,String> {

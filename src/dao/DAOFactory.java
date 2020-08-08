@@ -1,7 +1,7 @@
 package dao;
 
-import dao.custom.DAOType;
-import dao.custom.SuperDAO;
+import dao.DAOType;
+import dao.SuperDAO;
 import dao.custom.impl.CheckOutDAOImpl;
 import dao.custom.impl.GuestDAOImpl;
 import dao.custom.impl.QueryDAOImpl;

@@ -1,6 +1,6 @@
-package dao.custom.impl;
+package dao.custom;
 
-import dao.custom.CrudDAO;
+import dao.CrudDAO;
 import entity.RoomType;
 
 public interface RoomTypeDAO extends CrudDAO<RoomType,String> {

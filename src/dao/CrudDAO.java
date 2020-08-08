@@ -1,4 +1,4 @@
-package dao.custom;
+package dao;
 
 
 import java.io.Serializable;
