@@ -8,14 +8,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import business.custom.CheckoutBO;
+import bo.custom.CheckoutBO;
 import dao.DAOFactory;
 import dao.DAOType;
 import dao.custom.CheckOutDAO;
 import dao.custom.GuestDAO;
 import dao.custom.ReservationDetailDAO;
 import dao.custom.RoomDAO;
-import dbConnection.DBConnection;
+import db.DBConnection;
 import entity.CheckOut;
 import entity.ReservationDetail;
 import entity.Room;
