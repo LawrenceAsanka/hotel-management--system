@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserLoginController">
+   <children>
+      <JFXTextField fx:id="txtUserName" labelFloat="true" layoutX="153.0" layoutY="101.0" prefHeight="26.0" prefWidth="319.0" promptText="username" />
+      <JFXComboBox fx:id="cmbUserRole" labelFloat="true" layoutX="152.0" layoutY="159.0" prefHeight="26.0" prefWidth="319.0" promptText="role" />
+      <JFXPasswordField fx:id="txtPassword" labelFloat="true" layoutX="152.0" layoutY="217.0" prefHeight="26.0" prefWidth="319.0" promptText="password" />
+      <JFXButton fx:id="btnLogin" layoutX="269.0" layoutY="266.0" onAction="#btnLogin_OnAction" style="-fx-background-color: #ff1234;" text="LOGIN" textFill="WHITE" />
+   </children>
+</AnchorPane>

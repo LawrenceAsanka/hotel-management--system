@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="650.0" prefWidth="988.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ReservationProcessController">
+  <children>
+    <ImageView fitHeight="664.0" fitWidth="988.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+        <Image url="@../asset/background.jpg" />
+      </image>
+    </ImageView>
+    <VBox depthTest="ENABLE" layoutX="27.0" layoutY="24.0" prefHeight="599.0" prefWidth="932.0" style="-fx-background-color: #F2F4F2;">
+      <children>
+        <HBox prefHeight="154.0" prefWidth="932.0">
+          <children>
+            <Label alignment="CENTER" prefHeight="44.0" prefWidth="932.0" text="RESERVATION">
+              <font>
+                <Font name="System Bold" size="25.0" />
+              </font>
+              <HBox.margin>
+                <Insets top="20.0" />
+              </HBox.margin>
+            </Label>
+          </children>
+        </HBox>
+            <HBox prefHeight="723.0" prefWidth="932.0">
+               <children>
+                  <VBox prefHeight="136.0" prefWidth="932.0">
+                     <children>
+                        <HBox layoutX="10.0" layoutY="10.0" prefHeight="21.0" prefWidth="932.0">
+                           <children>
+                              <Label fx:id="lblReservationId" text="Reservation ID: XXXX">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="20.0" prefHeight="21.0" prefWidth="932.0">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="21.0" prefWidth="932.0">
+                           <children>
+                              <Label text="Check-In Date">
+                                 <HBox.margin>
+                                    <Insets left="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label layoutX="10.0" layoutY="10.0" text="Check-Out Date">
+                                 <HBox.margin>
+                                    <Insets left="240.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="56.0" prefWidth="932.0">
+                           <children>
+                              <TextField fx:id="txtCheckIn" promptText="XX-XX-XXXX" />
+                              <DatePicker fx:id="txtCheckOut" promptText="XX-XX-XXXX">
+                                 <HBox.margin>
+                                    <Insets left="160.0" />
+                                 </HBox.margin>
+                              </DatePicker>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="46.0" prefHeight="21.0" prefWidth="932.0">
+                           <children>
+                              <Label text="Select Room Type:">
+                                 <HBox.margin>
+                                    <Insets left="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label disable="true" layoutX="15.0" layoutY="10.0" text="No. Of Nights:">
+                                 <HBox.margin>
+                                    <Insets left="205.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="56.0" prefWidth="932.0">
+                           <children>
+                              <ComboBox fx:id="cmbRoomType" prefHeight="26.0" prefWidth="167.0" />
+                              <TextField fx:id="txtNumberOfNights" disable="true" editable="false" prefHeight="26.0" prefWidth="196.0">
+                                 <HBox.margin>
+                                    <Insets left="165.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="103.0" prefHeight="21.0" prefWidth="932.0">
+                           <children>
+                              <Label text="Available Rooms:">
+                                 <HBox.margin>
+                                    <Insets left="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="213.0" prefWidth="732.0">
+                           <children>
+                              <VBox>
+                                 <HBox.margin>
+                                    <Insets top="5.0" />
+                                 </HBox.margin>
+                                 <children>
+                                    <JFXListView fx:id="lstAvailableRoom" prefHeight="192.0" prefWidth="117.0" />
+                                 </children>
+                              </VBox>
+                              <VBox>
+                                 <children>
+                                    <TableView fx:id="tblReservationDetail" prefHeight="197.0" prefWidth="390.0">
+                                      <columns>
+                                        <TableColumn prefWidth="95.0" text="Room No." />
+                                        <TableColumn prefWidth="97.0" text="Type" />
+                                          <TableColumn prefWidth="123.0" text="Price" />
+                                          <TableColumn prefWidth="74.0" text="Action" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="25.0" top="5.0" />
+                                 </HBox.margin>
+                              </VBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin></HBox>
+                     </children></VBox>
+               </children>
+               <padding>
+                  <Insets left="200.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+        <HBox layoutX="10.0" layoutY="10.0" prefHeight="451.0" prefWidth="932.0">
+          <children>
+            <VBox prefHeight="58.0" prefWidth="932.0">
+              <children>
+                <HBox prefHeight="68.0" prefWidth="932.0">
+                  <children>
+                    <JFXButton fx:id="btnBack" onAction="#btnBack_OnAction" prefHeight="32.0" prefWidth="115.0" style="-fx-background-color: #4CAF50;" text="BACK">
+                      <font>
+                        <Font name="System Bold" size="13.0" />
+                      </font>
+                    </JFXButton>
+                    <JFXButton fx:id="btnCheckIn" layoutX="10.0" layoutY="10.0" onAction="#btnCheckIn_OnAction" prefHeight="32.0" prefWidth="115.0" style="-fx-background-color: #4CAF50;" text="CHECK-IN">
+                      <HBox.margin>
+                        <Insets left="300.0" />
+                      </HBox.margin>
+                      <font>
+                        <Font name="System Bold" size="13.0" />
+                      </font>
+                    </JFXButton>
+                  </children>
+                  <padding>
+                    <Insets left="200.0" right="10.0" />
+                  </padding>
+                  <VBox.margin>
+                    <Insets />
+                  </VBox.margin>
+                </HBox>
+              </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+            </VBox>
+          </children>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+        </HBox>
+      </children>
+    </VBox>
+  </children>
+</AnchorPane>

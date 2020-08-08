@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="650.0" prefWidth="988.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserManagementController">
+  <children>
+    <ImageView fitHeight="664.0" fitWidth="988.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+        <Image url="@../asset/background.jpg" />
+      </image>
+    </ImageView>
+    <VBox depthTest="ENABLE" layoutX="27.0" layoutY="24.0" prefHeight="599.0" prefWidth="932.0" style="-fx-background-color: #F2F4F2;">
+      <children>
+        <HBox prefHeight="67.0" prefWidth="734.0">
+          <children>
+                  <JFXButton fx:id="btnHome" alignment="TOP_LEFT" onAction="#btnHome_OnAction" style="-fx-border-color: #000000;" text="HOME">
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+                  </JFXButton>
+            <Label alignment="BASELINE_LEFT" prefHeight="44.0" prefWidth="303.0" text="Manage Users">
+              <font>
+                <Font name="System Bold" size="25.0" />
+              </font>
+              <HBox.margin>
+                <Insets left="275.0" top="20.0" />
+              </HBox.margin>
+            </Label>
+          </children>
+        </HBox>
+            <HBox prefHeight="22.0" prefWidth="932.0">
+               <children>
+                  <JFXButton fx:id="btnAddUser" alignment="CENTER" onAction="#btnAddUser_OnAction" prefHeight="33.0" prefWidth="90.0" style="-fx-background-color: #008CBA;" text="ADD" textAlignment="RIGHT" />
+               </children>
+               <padding>
+                  <Insets left="800.0" />
+               </padding>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="77.0" prefHeight="24.0" prefWidth="932.0">
+               <children>
+                  <Label fx:id="lblUserId" alignment="CENTER_RIGHT" prefHeight="22.0" prefWidth="129.0" text="User ID" />
+               </children>
+               <VBox.margin>
+                  <Insets left="760.0" top="10.0" />
+               </VBox.margin></HBox>
+      <VBox prefHeight="448.0" prefWidth="932.0">
+               <children>
+                  <HBox prefHeight="61.0" prefWidth="932.0">
+                     <children>
+                        <JFXTextField fx:id="txFirstName" labelFloat="true" prefHeight="26.0" prefWidth="233.0" promptText="First Name">
+                           <HBox.margin>
+                              <Insets left="200.0" top="10.0" />
+                           </HBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="txtEmail" labelFloat="true" layoutX="10.0" layoutY="10.0" prefHeight="26.0" prefWidth="215.0" promptText="E-mail">
+                           <HBox.margin>
+                              <Insets left="100.0" top="10.0" />
+                           </HBox.margin>
+                        </JFXTextField>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="10.0" prefHeight="61.0" prefWidth="932.0">
+                     <children>
+                        <JFXTextField fx:id="txtContact" labelFloat="true" prefHeight="26.0" prefWidth="233.0" promptText="Contact">
+                           <HBox.margin>
+                              <Insets left="200.0" />
+                           </HBox.margin>
+                        </JFXTextField>
+                        <JFXComboBox fx:id="cmbUserRole" labelFloat="true" prefHeight="26.0" prefWidth="215.0" promptText="User Role">
+                           <HBox.margin>
+                              <Insets left="100.0" />
+                           </HBox.margin>
+                        </JFXComboBox>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="56.0" prefHeight="41.0" prefWidth="932.0">
+                     <children>
+                        <JFXTextField fx:id="txtUsername" labelFloat="true" prefHeight="26.0" prefWidth="233.0" promptText="username">
+                           <HBox.margin>
+                              <Insets left="200.0" />
+                           </HBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="txtPassword" labelFloat="true" layoutX="10.0" layoutY="10.0" prefHeight="26.0" prefWidth="216.0" promptText="password">
+                           <HBox.margin>
+                              <Insets left="100.0" />
+                           </HBox.margin>
+                        </JFXTextField>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="132.0" prefHeight="44.0" prefWidth="932.0">
+                     <children>
+                        <JFXButton fx:id="btnDelete" onAction="#btnDelete_OnAction" prefHeight="26.0" prefWidth="108.0" style="-fx-background-color: #f44336;" text="DELETE">
+                           <HBox.margin>
+                              <Insets left="510.0" top="10.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="btnSave" layoutX="10.0" layoutY="10.0" onAction="#btnSave_OnAction" prefHeight="26.0" prefWidth="104.0" style="-fx-background-color: #4CAF50;" text="SAVE">
+                           <HBox.margin>
+                              <Insets left="30.0" top="10.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                     </children></HBox>
+                  <HBox prefHeight="243.0" prefWidth="932.0">
+                     <children>
+                        <TableView fx:id="tblUserDetails" prefHeight="256.0" prefWidth="863.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="ID" />
+                            <TableColumn prefWidth="139.0" text="First Name" />
+                              <TableColumn prefWidth="204.0" text="E-mail" />
+                              <TableColumn prefWidth="109.0" text="Contact" />
+                              <TableColumn prefWidth="109.0" text="User Role" />
+                              <TableColumn prefWidth="100.0" text="Username" />
+                              <TableColumn prefWidth="126.0" text="Password" />
+                          </columns>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </TableView>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="35.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children></VBox>
+      </children>
+    </VBox>
+  </children>
+</AnchorPane>

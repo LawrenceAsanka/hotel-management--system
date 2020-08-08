@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="650.0" prefWidth="988.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GuestRegistrationController">
+   <children>
+      <ImageView fitHeight="664.0" fitWidth="988.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asset/background.jpg" />
+         </image>
+      </ImageView>
+      <VBox depthTest="ENABLE" layoutX="27.0" layoutY="24.0" prefHeight="599.0" prefWidth="932.0" style="-fx-background-color: #F2F4F2;">
+         <children>
+            <HBox prefHeight="67.0" prefWidth="932.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="44.0" prefWidth="935.0" text=" Guest Details">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="20.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="10.0" prefHeight="505.0" prefWidth="932.0">
+               <children>
+                  <VBox prefHeight="505.0" prefWidth="475.0">
+                     <children>
+                        <JFXTextField fx:id="txtGuestId" labelFloat="true" promptText="ID:">
+                           <VBox.margin>
+                              <Insets left="100.0" top="40.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="txtGuestFName" labelFloat="true" layoutX="10.0" layoutY="10.0" promptText="FIRST NAME:">
+                           <VBox.margin>
+                              <Insets left="100.0" top="20.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="txtGuestLName" labelFloat="true" layoutX="10.0" layoutY="36.0" promptText="LAST NAME:">
+                           <VBox.margin>
+                              <Insets left="100.0" top="20.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="txtGuestAddress" labelFloat="true" layoutX="10.0" layoutY="62.0" promptText="ADDRESS:">
+                           <VBox.margin>
+                              <Insets left="100.0" top="20.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="txtGuestCountry" labelFloat="true" layoutX="10.0" layoutY="62.0" promptText="COUNTRY:">
+                           <VBox.margin>
+                              <Insets left="100.0" top="20.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="txtGuestNIC" labelFloat="true" layoutX="10.0" layoutY="114.0" promptText="NIC / PASSWORD NO:">
+                           <VBox.margin>
+                              <Insets left="100.0" top="20.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="txtGuestContact" labelFloat="true" layoutX="10.0" layoutY="140.0" promptText="CONTACT:">
+                           <VBox.margin>
+                              <Insets left="100.0" top="20.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <HBox prefHeight="123.0" prefWidth="452.0">
+                           <children>
+                              <JFXButton fx:id="btnHome" onAction="#btnHome_OnAction" prefHeight="32.0" prefWidth="115.0" style="-fx-background-color: #4CAF50;" text="BACK">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton fx:id="btnNext" layoutX="10.0" layoutY="10.0" onAction="#btnNext_OnAction" prefHeight="32.0" prefWidth="115.0" style="-fx-background-color: #4CAF50;" text="NEXT">
+                                 <HBox.margin>
+                                    <Insets left="125.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                           <padding>
+                              <Insets left="100.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets top="40.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox prefHeight="505.0" prefWidth="457.0">
+                     <children>
+                        <JFXTextField fx:id="txtGuestSearch" promptText="Search  with Name/NIC/Passport No">
+                           <VBox.margin>
+                              <Insets left="40.0" right="40.0" top="10.0" />
+                           </VBox.margin></JFXTextField>
+                        <VBox alignment="CENTER">
+                           <VBox.margin>
+                              <Insets left="40.0" right="40.0" top="30.0" />
+                           </VBox.margin>
+                           <children>
+                              <TableView fx:id="tblGuestDetails" prefHeight="349.0" prefWidth="457.0">
+                                <columns>
+                                  <TableColumn prefWidth="87.0" text="FirstName" />
+                                  <TableColumn prefWidth="86.0" text="LastName" />
+                                    <TableColumn prefWidth="100.0" text="NIC" />
+                                    <TableColumn prefWidth="103.0" text="COUNTRY" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
