@@ -16,6 +16,7 @@ import bo.BOFactory;
 import bo.BOType;
 import bo.custom.CheckoutBO;
 import bo.custom.ReservationBO;
+import javafx.animation.FadeTransition;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -33,6 +34,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import util.ReservationTM;
 import util.RoomTM;
 
@@ -54,6 +56,14 @@ public class CheckOutController {
 
 
   public void initialize() {
+
+    //Transition.....
+    FadeTransition fadeIn = new FadeTransition(Duration.seconds(2), root);
+    fadeIn.setFromValue(0);
+    fadeIn.setToValue(1);
+    fadeIn.setCycleCount(1);
+
+    fadeIn.play();
 
     //Set current date
     LocalDate today = LocalDate.now();
@@ -191,7 +201,6 @@ public class CheckOutController {
       stage.setTitle("DASHBOARD");
       stage.centerOnScreen();
       stage.setScene(customerRegistrationScene);
-      stage.sizeToScene();
     } catch (IOException e) {
       e.printStackTrace();
     }

@@ -34,6 +34,8 @@ public class UserLoginController {
 
   public void initialize() {
 
+
+
     cmbUserRole.getItems().addAll("admin","manager","staff");
   }
 
@@ -55,7 +57,6 @@ public class UserLoginController {
           stage.setTitle("DASHBOARD");
           stage.setScene(dashBoardScene);
           stage.centerOnScreen();
-          stage.show();
         } catch (IOException e) {
           e.printStackTrace();
         }

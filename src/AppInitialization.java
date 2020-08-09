@@ -24,12 +24,11 @@ public class AppInitialization extends Application {
   public void start(Stage primaryStage) {
 
     try {
-      Parent root = FXMLLoader.load(this.getClass().getResource("/view/roomManagement.fxml"));
+      Parent root = FXMLLoader.load(this.getClass().getResource("/view/userLogin.fxml"));
       Scene dashBoardScene = new Scene(root);
       primaryStage.setScene(dashBoardScene);
       primaryStage.centerOnScreen();
       primaryStage.setResizable(false);
-      //primaryStage.initStyle(StageStyle.UNDECORATED);
       primaryStage.setTitle("WELCOME TO THE LOGIN");
       primaryStage.show();
     } catch (IOException e) {

@@ -10,6 +10,7 @@ import com.jfoenix.controls.JFXTextField;
 import bo.BOFactory;
 import bo.BOType;
 import bo.custom.GuestBO;
+import javafx.animation.FadeTransition;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -27,6 +28,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import util.GuestTM;
 
 public class GuestManagementController {
@@ -48,6 +50,14 @@ public class GuestManagementController {
   List<GuestTM> guestArrayList = new ArrayList<>();
 
   public void initialize() {
+
+    //Transition.....
+    FadeTransition fadeIn = new FadeTransition(Duration.seconds(2), root);
+    fadeIn.setFromValue(0);
+    fadeIn.setToValue(1);
+    fadeIn.setCycleCount(1);
+
+    fadeIn.play();
 
     //Add values to combo box
     cmbStatus.getItems().addAll("in", "out");

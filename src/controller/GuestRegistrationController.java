@@ -10,6 +10,7 @@ import com.jfoenix.controls.JFXTextField;
 import bo.BOFactory;
 import bo.BOType;
 import bo.custom.GuestBO;
+import javafx.animation.FadeTransition;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -22,6 +23,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import util.GuestTM;
 
 public class GuestRegistrationController {
@@ -49,6 +51,14 @@ public class GuestRegistrationController {
   ArrayList<GuestTM> guests = new ArrayList<>();
 
   public void initialize() {
+
+    //Transition.....
+    FadeTransition fadeIn = new FadeTransition(Duration.seconds(2), root);
+    fadeIn.setFromValue(0);
+    fadeIn.setToValue(1);
+    fadeIn.setCycleCount(1);
+
+    fadeIn.play();
 
     //Column mapping
     tblGuestDetails.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("guestFirstName"));

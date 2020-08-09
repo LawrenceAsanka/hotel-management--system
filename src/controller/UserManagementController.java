@@ -11,6 +11,7 @@ import bo.BOFactory;
 import bo.BOType;
 import bo.custom.UserBO;
 import entity.User;
+import javafx.animation.FadeTransition;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -27,6 +28,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import util.UserTM;
 
 public class UserManagementController {
@@ -47,6 +49,15 @@ public class UserManagementController {
   public TableView<UserTM> tblUserDetails;
 
   public void initialize() {
+
+    //Transition.....
+    FadeTransition fadeIn = new FadeTransition(Duration.seconds(2), root);
+    fadeIn.setFromValue(0);
+    fadeIn.setToValue(1);
+    fadeIn.setCycleCount(1);
+
+    fadeIn.play();
+
 
     //some initialize
     btnSave.setDisable(true);
@@ -174,21 +185,6 @@ public class UserManagementController {
 
   }
 
-  //Navigate to home
-  public void btnHome_OnAction(ActionEvent actionEvent) {
-
-    try {
-      Parent root = FXMLLoader.load(this.getClass().getResource("/view/dashBoard.fxml"));
-      Scene customerRegistrationScene = new Scene(root);
-      Stage stage = (Stage) this.root.getScene().getWindow();
-      stage.setTitle("DASHBOARD");
-      stage.setScene(customerRegistrationScene);
-      stage.sizeToScene();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-  }
-
   private void getAllUsers() {
     tblUserDetails.getItems().clear();
     try {
@@ -234,6 +230,21 @@ public class UserManagementController {
       return false;
     }
     return true;
+  }
+
+  //Navigate to home
+  public void btnHome_OnAction(ActionEvent actionEvent) {
+
+    try {
+      Parent root = FXMLLoader.load(this.getClass().getResource("/view/dashBoard.fxml"));
+      Scene customerRegistrationScene = new Scene(root);
+      Stage stage = (Stage) this.root.getScene().getWindow();
+      stage.setTitle("DASHBOARD");
+      stage.setScene(customerRegistrationScene);
+      stage.sizeToScene();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 }
 

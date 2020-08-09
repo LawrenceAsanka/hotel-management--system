@@ -14,6 +14,7 @@ import bo.BOType;
 import bo.custom.ReservationBO;
 import bo.custom.RoomBO;
 import bo.custom.RoomTypeBo;
+import javafx.animation.FadeTransition;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -36,6 +37,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import util.GuestTM;
 import util.ReservationDetailTM;
 import util.ReservationTM;
@@ -61,6 +63,14 @@ public class ReservationProcessController {
   boolean result = false;
 
   public void initialize() {
+
+    //Transition.....
+    FadeTransition fadeIn = new FadeTransition(Duration.seconds(2), root);
+    fadeIn.setFromValue(0);
+    fadeIn.setToValue(1);
+    fadeIn.setCycleCount(1);
+
+    fadeIn.play();
 
     txtNumberOfNights.setEditable(false);
     txtCheckIn.setEditable(false);
@@ -170,24 +180,9 @@ public class ReservationProcessController {
 
   }
 
-  //Navigate to home
-  public void btnBack_OnAction(ActionEvent actionEvent) {
-    try {
-      Parent root = FXMLLoader.load(this.getClass().getResource("/view/guestRegistration.fxml"));
-      Scene reservationScene = new Scene(root);
-      Stage stage = (Stage) this.root.getScene().getWindow();
-      stage.setTitle("RESERVATION");
-      stage.centerOnScreen();
-      stage.setResizable(false);
-      stage.setScene(reservationScene);
-      stage.sizeToScene();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-  }
-
 
   //Checkin Button process
+
   public void btnCheckIn_OnAction(ActionEvent actionEvent) {
     //Checking valid or not
     if (validation()) {
@@ -240,8 +235,8 @@ public class ReservationProcessController {
 
 
   }
-
   //Method for load all room types
+
   private void loadAllRoomTypes() {
     try {
       List<RoomTypeTM> allRoomTypes = roomTypeBo.getAllRoomTypes();
@@ -251,8 +246,8 @@ public class ReservationProcessController {
       e.printStackTrace();
     }
   }
-
   //Validation Method
+
   private boolean validation() {
 
     if (txtCheckOut.getValue() == null) {
@@ -270,5 +265,19 @@ public class ReservationProcessController {
     return true;
   }
 
-
+//Navigate to home
+  public void btnBack_OnAction(ActionEvent actionEvent) {
+    try {
+      Parent root = FXMLLoader.load(this.getClass().getResource("/view/guestRegistration.fxml"));
+      Scene reservationScene = new Scene(root);
+      Stage stage = (Stage) this.root.getScene().getWindow();
+      stage.setTitle("RESERVATION");
+      stage.centerOnScreen();
+      stage.setResizable(false);
+      stage.setScene(reservationScene);
+      stage.sizeToScene();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
 }

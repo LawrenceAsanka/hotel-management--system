@@ -11,6 +11,7 @@ import bo.BOFactory;
 import bo.BOType;
 import bo.custom.RoomBO;
 import bo.custom.RoomTypeBo;
+import javafx.animation.FadeTransition;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -28,6 +29,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import util.RoomTM;
 import util.RoomTypeTM;
 
@@ -56,6 +58,14 @@ public class RoomManagementController {
   boolean result = false;
 
   public void initialize() {
+
+    //Transition.....
+    FadeTransition fadeIn = new FadeTransition(Duration.seconds(2), root);
+    fadeIn.setFromValue(0);
+    fadeIn.setToValue(1);
+    fadeIn.setCycleCount(1);
+
+    fadeIn.play();
 
     //disable editable room number filed
     txtRoomNo.setEditable(false);
@@ -146,21 +156,8 @@ public class RoomManagementController {
   }
 
   //Navigate to home
-  public void btnHome_OnAction(ActionEvent actionEvent) {
-    try {
-      Parent root = FXMLLoader.load(this.getClass().getResource("/view/dashBoard.fxml"));
-      Scene customerRegistrationScene = new Scene(root);
-      Stage stage = (Stage) this.root.getScene().getWindow();
-      stage.setTitle("DASHBOARD");
-      stage.centerOnScreen();
-      stage.setScene(customerRegistrationScene);
-      stage.sizeToScene();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-  }
-
   //Add new room type
+
   public void btnRoomTypeAdd_OnAction(ActionEvent actionEvent) {
     //Validation
     if (txtRoomTypeName.getText().trim().length() == 0 || txtTypePrice.getText().trim().length() == 0) {
@@ -183,8 +180,8 @@ public class RoomManagementController {
     loadAllRoomTypes();
     clearRoomType();
   }
-
   //Update room type
+
   public void btnRoomTypeUpdate_OnAction(ActionEvent actionEvent) {
     //Validation
     if (tblRoomType.getSelectionModel().isEmpty()) {
@@ -208,8 +205,8 @@ public class RoomManagementController {
     loadAllRoomTypes();
     clearRoomType();
   }
-
   //Button for delete a room type
+
   public void btnRoomTypeDelete_OnAction(ActionEvent actionEvent) {
     //Validation
     if (tblRoomDetails.getSelectionModel().isEmpty()) {
@@ -236,8 +233,8 @@ public class RoomManagementController {
     clearRoomType();
 
   }
-
   //Method for load all room types to room type combo box and table
+
   void loadAllRoomTypes() {
     tblRoomType.getItems().clear();
     cmbRoomType.getItems().clear();
@@ -250,17 +247,17 @@ public class RoomManagementController {
       e.printStackTrace();
     }
   }
-
   //Clear the text fields in room type
+
   private void clearRoomType() {
     txtRoomTypeName.clear();
     txtTypePrice.clear();
     btnRoomTypeAdd.setDisable(false);
   }
-
   //-------------------------------------------------------------------------------------------------------------------
   //Let's start room management
   //Add new room
+
   public void btnRoomAdd_OnAction(ActionEvent actionEvent) {
     //Validation
     if (cmbRoomType.getSelectionModel().isEmpty()) {
@@ -288,8 +285,8 @@ public class RoomManagementController {
     clearRoom();
     generateAutoId();
   }
-
   //Delete a room
+
   public void btnRoomDelete_OnAction(ActionEvent actionEvent) {
     //Validation
     if (tblRoomDetails.getSelectionModel().isEmpty()) {
@@ -317,8 +314,8 @@ public class RoomManagementController {
     generateAutoId();
   }
 
-
   //Update  a room
+
   public void btnRoomUpdate_OnAction(ActionEvent actionEvent) {
     //Validation
     if (tblRoomDetails.getSelectionModel().isEmpty()) {
@@ -342,8 +339,8 @@ public class RoomManagementController {
     clearRoom();
     generateAutoId();
   }
-
   //Method for load all rooms
+
   void loadAllRooms() {
     tblRoomDetails.getItems().clear();
     try {
@@ -360,8 +357,8 @@ public class RoomManagementController {
       e.printStackTrace();
     }
   }
-
   //Method for generate auto room number
+
   private void generateAutoId() {
     txtRoomNo.setEditable(false);
     try {
@@ -371,8 +368,8 @@ public class RoomManagementController {
       e.printStackTrace();
     }
   }
-
   //Clear room text fields
+
   private void clearRoom() {
     txtRoomNo.clear();
     cmbRoomType.getSelectionModel().clearSelection();
@@ -380,5 +377,19 @@ public class RoomManagementController {
     txtRoomPrice.clear();
     tblRoomDetails.getSelectionModel().clearSelection();
     btnRoomAdd.setDisable(false);
+  }
+
+  //Navigate to home
+  public void btnHome_OnAction(ActionEvent actionEvent) {
+    try {
+      Parent root = FXMLLoader.load(this.getClass().getResource("/view/dashBoard.fxml"));
+      Scene customerRegistrationScene = new Scene(root);
+      Stage stage = (Stage) this.root.getScene().getWindow();
+      stage.setTitle("DASHBOARD");
+      stage.centerOnScreen();
+      stage.setScene(customerRegistrationScene);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 }
