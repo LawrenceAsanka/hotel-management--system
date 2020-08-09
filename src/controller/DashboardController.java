@@ -31,6 +31,7 @@ public class DashboardController {
       Stage stage = (Stage) this.root.getScene().getWindow();
       stage.setTitle("CHECKING PROCESS");
       stage.setScene(mainScene);
+      stage.centerOnScreen();
       stage.sizeToScene();
     } catch (IOException e) {
       e.printStackTrace();
@@ -44,6 +45,7 @@ public class DashboardController {
       Stage stage = (Stage) this.root.getScene().getWindow();
       stage.setTitle("CHECKOUT PROCESS");
       stage.setScene(customerRegistrationScene);
+      stage.centerOnScreen();
       stage.sizeToScene();
     } catch (IOException e) {
       e.printStackTrace();
@@ -55,8 +57,9 @@ public class DashboardController {
       Parent root = FXMLLoader.load(this.getClass().getResource("/view/guestManagement.fxml"));
       Scene customerRegistrationScene = new Scene(root);
       Stage stage = (Stage) this.root.getScene().getWindow();
-      stage.setTitle("CHECKOUT PROCESS");
+      stage.setTitle("GUEST MANAGEMENT");
       stage.setScene(customerRegistrationScene);
+      stage.centerOnScreen();
       stage.sizeToScene();
     } catch (IOException e) {
       e.printStackTrace();
@@ -70,6 +73,7 @@ public class DashboardController {
       Stage stage = (Stage) this.root.getScene().getWindow();
       stage.setTitle("ROOM MANAGEMENT");
       stage.setScene(customerRegistrationScene);
+      stage.centerOnScreen();
       stage.sizeToScene();
     } catch (IOException e) {
       e.printStackTrace();
@@ -81,8 +85,9 @@ public class DashboardController {
       Parent root = FXMLLoader.load(this.getClass().getResource("/view/userManagement.fxml"));
       Scene customerRegistrationScene = new Scene(root);
       Stage stage = (Stage) this.root.getScene().getWindow();
-      stage.setTitle("ROOM MANAGEMENT");
+      stage.setTitle("USER MANAGEMENT");
       stage.setScene(customerRegistrationScene);
+      stage.centerOnScreen();
       stage.sizeToScene();
     } catch (IOException e) {
       e.printStackTrace();
@@ -97,8 +102,9 @@ public class DashboardController {
       Parent root = FXMLLoader.load(this.getClass().getResource("/view/guestRegistration.fxml"));
       Scene customerRegistrationScene = new Scene(root);
       Stage stage = (Stage) this.root.getScene().getWindow();
-      stage.setTitle("CHECKING PROCESS");
+      stage.setTitle("CHECKIN");
       stage.setScene(customerRegistrationScene);
+      stage.centerOnScreen();
       stage.sizeToScene();
     } catch (IOException e) {
       e.printStackTrace();
@@ -112,6 +118,7 @@ public class DashboardController {
       Stage stage = (Stage) this.root.getScene().getWindow();
       stage.setTitle("CHECKOUT PROCESS");
       stage.setScene(customerRegistrationScene);
+      stage.centerOnScreen();
       stage.sizeToScene();
     } catch (IOException e) {
       e.printStackTrace();
@@ -124,8 +131,9 @@ public class DashboardController {
       Parent root = FXMLLoader.load(this.getClass().getResource("/view/guestManagement.fxml"));
       Scene customerRegistrationScene = new Scene(root);
       Stage stage = (Stage) this.root.getScene().getWindow();
-      stage.setTitle("CHECKOUT PROCESS");
+      stage.setTitle("GUEST MANAGEMENT");
       stage.setScene(customerRegistrationScene);
+      stage.centerOnScreen();
       stage.sizeToScene();
     } catch (IOException e) {
       e.printStackTrace();
@@ -139,6 +147,7 @@ public class DashboardController {
       Stage stage = (Stage) this.root.getScene().getWindow();
       stage.setTitle("ROOM MANAGEMENT");
       stage.setScene(customerRegistrationScene);
+      stage.centerOnScreen();
       stage.sizeToScene();
     } catch (IOException e) {
       e.printStackTrace();
@@ -151,8 +160,9 @@ public class DashboardController {
         Parent root = FXMLLoader.load(this.getClass().getResource("/view/userManagement.fxml"));
         Scene customerRegistrationScene = new Scene(root);
         Stage stage = (Stage) this.root.getScene().getWindow();
-        stage.setTitle("ROOM MANAGEMENT");
+        stage.setTitle("USER MANAGEMENT");
         stage.setScene(customerRegistrationScene);
+        stage.centerOnScreen();
         stage.sizeToScene();
       } catch (IOException e) {
         e.printStackTrace();
@@ -164,5 +174,16 @@ public class DashboardController {
   }
 
   public void icon_logout_OnMouseClicked(MouseEvent mouseEvent) {
+    try {
+      Parent root = FXMLLoader.load(this.getClass().getResource("/view/userLogin.fxml"));
+      Scene customerRegistrationScene = new Scene(root);
+      Stage stage = (Stage) this.root.getScene().getWindow();
+      stage.setTitle("DASHBOARD");
+      stage.setScene(customerRegistrationScene);
+      stage.centerOnScreen();
+      stage.sizeToScene();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 }
