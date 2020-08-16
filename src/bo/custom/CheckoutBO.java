@@ -9,7 +9,7 @@ import util.RoomTM;
 
 public interface CheckoutBO extends SuperBO {
 
-  boolean checkout(ReservationTM reservation,String userId, Date date,int dateCount,List<RoomTM> room) throws Exception;
+  boolean checkout(ReservationTM reservation,String userId, Date date,int dateCount,List<RoomTM> room,String status) throws Exception;
 
   List<RoomTM> findAllCheckoutRooms(String id) throws Exception;
 }

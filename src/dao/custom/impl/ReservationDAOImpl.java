@@ -27,8 +27,9 @@ public class ReservationDAOImpl implements ReservationDAO {
   }
 
   @Override
-  public boolean update(Reservation entity) throws Exception {
-    return false;
+  public boolean update(Reservation reservation) throws Exception {
+    return CrudUtil.execute("UPDATE Reservation SET userId=?,status=? WHERE resvId=?",reservation.getUserId(),
+        reservation.getStatus(),reservation.getResvId());
   }
 
   @Override

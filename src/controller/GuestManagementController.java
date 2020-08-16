@@ -93,6 +93,7 @@ public class GuestManagementController {
         txtAddress.setText(newValue.getGuestAddress());
         cmbStatus.getSelectionModel().select(newValue.getGuestStatus());
 
+        btnDelete.setDisable(false);
       }
     });
 

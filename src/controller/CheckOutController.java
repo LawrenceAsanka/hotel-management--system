@@ -151,7 +151,7 @@ public class CheckOutController {
             UserLoginController.userId,
             Date.valueOf(lblCurrentDate.getText()),
             Integer.parseInt(txtNumberOfNights.getText()),
-            lstCheckinRooms.getItems());
+            lstCheckinRooms.getItems(),"check-out");
         if (!result) {
           new Alert(AlertType.ERROR, "Something went wrong.Please try again!", ButtonType.OK).showAndWait();
         } else {

@@ -13,10 +13,12 @@ import dao.DAOFactory;
 import dao.DAOType;
 import dao.custom.CheckOutDAO;
 import dao.custom.GuestDAO;
+import dao.custom.ReservationDAO;
 import dao.custom.ReservationDetailDAO;
 import dao.custom.RoomDAO;
 import db.DBConnection;
 import entity.CheckOut;
+import entity.Reservation;
 import entity.ReservationDetail;
 import entity.Room;
 import util.ReservationTM;
@@ -28,9 +30,11 @@ public class CheckoutBOImpl implements CheckoutBO {
   private final GuestDAO guestDAO = DAOFactory.getInstance().getDAO(DAOType.GUEST);
   private final RoomDAO roomDAO = DAOFactory.getInstance().getDAO(DAOType.ROOM);
   private final ReservationDetailDAO reservationDetailDAO = DAOFactory.getInstance().getDAO(DAOType.RESERVATION_DETAIL);
+  ReservationDAO reservationDAO = DAOFactory.getInstance().getDAO(DAOType.RESERVATION);
 
   @Override
-  public boolean checkout(ReservationTM reservation, String userId, Date date, int dateCount, List<RoomTM> room) {
+  public boolean checkout(ReservationTM reservation, String userId, Date date, int dateCount, List<RoomTM> room,
+      String status) {
     boolean result = false;
     Connection connection = DBConnection.getInstance().getConnection();
     try {
@@ -48,14 +52,20 @@ public class CheckoutBOImpl implements CheckoutBO {
         return false;
       }
 
+      result = reservationDAO.update(new Reservation(reservation.getReservationId(),date,"",date,date,
+          userId,"check-out"));
+      if (!result) {
+        connection.rollback();
+        return false;
+      }
+
       for (RoomTM rooms : room) {
-        result = roomDAO.updateCheckoutRooms(new Room(rooms.getRoomNumber(),0,"Not-Reserved"));
+        result = roomDAO.updateCheckoutRooms(new Room(rooms.getRoomNumber(), 0, "Not-Reserved"));
         if (!result) {
           connection.rollback();
           return false;
         }
       }
-
 
       connection.commit();
       return true;
@@ -81,7 +91,7 @@ public class CheckoutBOImpl implements CheckoutBO {
     List<ReservationDetail> reservedRooms = reservationDetailDAO.findReservedRooms(id);
     List<RoomTM> rooms = new ArrayList<>();
     for (ReservationDetail reservedRoom : reservedRooms) {
-      rooms.add(new RoomTM(reservedRoom.getReservationDetailPK().getRoomNumber(),"", BigDecimal.valueOf(00.00),
+      rooms.add(new RoomTM(reservedRoom.getReservationDetailPK().getRoomNumber(), "", BigDecimal.valueOf(00.00),
           ""));
     }
     return rooms;
