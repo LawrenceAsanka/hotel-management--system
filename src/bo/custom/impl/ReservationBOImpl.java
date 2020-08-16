@@ -43,7 +43,8 @@ public class ReservationBOImpl implements ReservationBO {
       connection.setAutoCommit(false);
 
       Guest existGuest = guestDAO.find(guestId);
-      if (existGuest.getGuestId().equals(guest.getGuestId())) {
+      //if (existGuest.getGuestId().equals(guest.getGuestId()))
+      if (existGuest != null) {
 
         result = guestDAO.update(new Guest(guest.getGuestId(), guest.getGuestFirstName(), guest.getGuestLastName(),
             guest.getGuestAddress(), guest.getPassportNumber(), guest.getGuestCountry(),
