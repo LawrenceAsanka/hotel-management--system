@@ -176,7 +176,7 @@ public class CheckOutController {
   private void loadAllReservationDetails() {
     tblReservationDetails.getItems().clear();
     try {
-      List<ReservationTM> reservationDetail = reservationBO.reservationDetails("in");
+      List<ReservationTM> reservationDetail = reservationBO.reservationDetails("check-in");
       ObservableList<ReservationTM> reservationDetailsObservableList = FXCollections
           .observableArrayList(reservationDetail);
       tblReservationDetails.setItems(reservationDetailsObservableList);

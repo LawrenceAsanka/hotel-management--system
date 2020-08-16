@@ -37,14 +37,14 @@ public class QueryDAOImpl implements QueryDAO {
 
   @Override
   public List<CustomEntity> getReservationsDetails(String status) throws Exception {
-    ResultSet result = CrudUtil.execute("SELECT r.resvId,g.guestId,g.guestFirstName,r.checkInDate,r.checkOutDate,SUM(rd.roomPrice),g.guestStatus\n"
+    ResultSet result = CrudUtil.execute("SELECT r.resvId,g.guestId,g.guestFirstName,r.checkInDate,r.checkOutDate,r.status,SUM(rd.roomPrice)\n"
         + "FROM Reservation r\n"
         + "INNER JOIN Guest g ON r.guestId = g.guestId\n"
-        + "INNER JOIN ReservationDetail rd on r.resvId = rd.resvId WHERE guestStatus=? GROUP BY r.resvId",status);
+        + "INNER JOIN ReservationDetail rd on r.resvId = rd.resvId WHERE r.status=? GROUP BY r.resvId",status);
     List<CustomEntity> reservationDetails = new ArrayList<>();
     while (result.next()) {
       reservationDetails.add(new CustomEntity(result.getString(1), result.getString(2),result.getString(3),
-          result.getDate(4),result.getDate(5),result.getBigDecimal(6)));
+          result.getDate(4),result.getDate(5),result.getBigDecimal(7)));
     }
     return reservationDetails;
   }
