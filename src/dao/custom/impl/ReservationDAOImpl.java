@@ -21,9 +21,9 @@ public class ReservationDAOImpl implements ReservationDAO {
 
   @Override
   public boolean save(Reservation reservation) throws Exception {
-   return CrudUtil.execute("INSERT INTO Reservation VALUES (?,?,?,?,?,?)",
+   return CrudUtil.execute("INSERT INTO Reservation VALUES (?,?,?,?,?,?,?)",
        reservation.getResvId(),reservation.getResvDate(),reservation.getGuestId(),reservation.getCheckInDate(),
-       reservation.getCheckOutDate(),reservation.getUserId());
+       reservation.getCheckOutDate(),reservation.getUserId(),reservation.getStatus());
   }
 
   @Override

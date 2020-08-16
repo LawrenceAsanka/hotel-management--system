@@ -9,7 +9,7 @@ import util.ReservationTM;
 
 public interface ReservationBO extends SuperBO {
 
-  public boolean reserved(GuestTM guestTM,String guestId, String userId,ReservationTM reservationTM, List<ReservationDetailTM> reservationDetail)throws Exception;
+  public boolean reserved(GuestTM guestTM,String guestId, String userId,ReservationTM reservationTM, List<ReservationDetailTM> reservationDetail,String reservationStatus)throws Exception;
 
   String getNewReservationId() throws Exception;
 

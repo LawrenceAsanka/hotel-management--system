@@ -34,7 +34,7 @@ public class ReservationBOImpl implements ReservationBO {
 
   @Override
   public boolean reserved(GuestTM guest, String guestId, String userId, ReservationTM reservation,
-      List<ReservationDetailTM> reservationDetails) {
+      List<ReservationDetailTM> reservationDetails,String reservationStatus) {
     boolean result = false;
     //Beginning transaction
     Connection connection = DBConnection.getInstance().getConnection();
@@ -62,7 +62,7 @@ public class ReservationBOImpl implements ReservationBO {
       }
 
       result = reservationDAO.save(new Reservation(reservation.getReservationId(), reservation.getCheckInDate(),
-          reservation.getGuestId(), reservation.getCheckInDate(), reservation.getCheckOutDate(), userId));
+          reservation.getGuestId(), reservation.getCheckInDate(), reservation.getCheckOutDate(), userId,reservationStatus));
       if (!result) {
         connection.rollback();
         return false;

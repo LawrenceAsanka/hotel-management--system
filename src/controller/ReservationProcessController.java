@@ -199,7 +199,7 @@ public class ReservationProcessController {
                     GuestRegistrationController.guestFName,
                     Date.valueOf(txtCheckIn.getText()), Date.valueOf(txtCheckOut.getValue()), BigDecimal.valueOf(000.00)
                 ),
-                tblReservationDetail.getItems());
+                tblReservationDetail.getItems(),"check-in");
 
         if (!result) {
           new Alert(AlertType.ERROR, "Something went wrong,Please try again!", ButtonType.OK).show();

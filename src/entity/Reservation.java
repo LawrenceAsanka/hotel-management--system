@@ -2,7 +2,7 @@ package entity;
 
 import java.sql.Date;
 
-public class Reservation implements SuperEntity{
+public class Reservation implements SuperEntity {
 
   private String resvId;
   private Date resvDate;
@@ -10,20 +10,21 @@ public class Reservation implements SuperEntity{
   private Date checkInDate;
   private Date checkOutDate;
   private String userId;
+  private String status;
 
   public Reservation() {
   }
 
   public Reservation(String resvId, Date resvDate, String guestId, Date checkInDate, Date checkOutDate,
-       String userId) {
-    this.setResvId(resvId);
-    this.setResvDate(resvDate);
-    this.setGuestId(guestId);
-    this.setCheckInDate(checkInDate);
-    this.setCheckOutDate(checkOutDate);
-    this.setUserId(userId);
+      String userId, String status) {
+    this.resvId = resvId;
+    this.resvDate = resvDate;
+    this.guestId = guestId;
+    this.checkInDate = checkInDate;
+    this.checkOutDate = checkOutDate;
+    this.userId = userId;
+    this.status = status;
   }
-
 
   public String getResvId() {
     return resvId;
@@ -73,6 +74,14 @@ public class Reservation implements SuperEntity{
     this.userId = userId;
   }
 
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
   @Override
   public String toString() {
     return "Reservation{" +
@@ -82,6 +91,7 @@ public class Reservation implements SuperEntity{
         ", checkInDate=" + checkInDate +
         ", checkOutDate=" + checkOutDate +
         ", userId='" + userId + '\'' +
+        ", status='" + status + '\'' +
         '}';
   }
 }
