@@ -74,8 +74,4 @@ public class GuestDAOImpl implements GuestDAO {
     return guests;
   }
 
-  @Override
-  public boolean updateGuestStatus(String guestId, String status) throws Exception {
-    return CrudUtil.execute("UPDATE Guest SET guestStatus=? WHERE guestId=?",status,guestId);
-  }
 }

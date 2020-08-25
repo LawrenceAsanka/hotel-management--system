@@ -112,7 +112,7 @@ public class GuestRegistrationController {
       Stage stage = (Stage) this.root.getScene().getWindow();
       stage.setTitle("DASHBOARD");
       stage.centerOnScreen();
-      stage.setResizable(false);
+     // stage.setResizable(false);
       stage.setScene(customerRegistrationScene);
       stage.sizeToScene();
     } catch (IOException e) {

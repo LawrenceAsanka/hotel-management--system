@@ -11,5 +11,4 @@ public interface GuestDAO extends CrudDAO<Guest,String> {
 
   List<Guest> findAllCheckedOutGuest(String status) throws Exception;
 
-  boolean updateGuestStatus(String guestId,String status) throws Exception;
 }

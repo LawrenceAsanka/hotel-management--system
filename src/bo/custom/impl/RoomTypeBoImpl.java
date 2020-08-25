@@ -27,12 +27,12 @@ public class RoomTypeBoImpl implements RoomTypeBo {
 
   @Override
   public boolean saveRoomType(String name, double price) throws Exception {
-    return roomTypeDAO.saveRoomType(name, price);
+    return roomTypeDAO.save(new RoomType(name,BigDecimal.valueOf(price)));
   }
 
   @Override
-  public boolean deleteRoomType(String roomId) throws Exception {
-    return roomTypeDAO.delete(roomId);
+  public boolean deleteRoomType(String roomTypeId) throws Exception {
+    return roomTypeDAO.delete(Integer.parseInt(roomTypeId));
   }
 
   @Override

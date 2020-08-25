@@ -28,7 +28,7 @@ public class AppInitialization extends Application {
       Scene dashBoardScene = new Scene(root);
       primaryStage.setScene(dashBoardScene);
       primaryStage.centerOnScreen();
-      primaryStage.setResizable(false);
+//      primaryStage.setResizable(false);
       primaryStage.setTitle("WELCOME TO THE LOGIN");
       primaryStage.show();
     } catch (IOException e) {

@@ -21,13 +21,14 @@ public class RoomTypeDAOImpl implements RoomTypeDAO {
   }
 
   @Override
-  public RoomType find(String key) throws Exception {
+  public RoomType find(Integer key) throws Exception {
     return null;
   }
 
   @Override
   public boolean save(RoomType roomType) throws Exception {
-    return false;
+    return CrudUtil.execute("INSERT INTO RoomType (typeName,typePrice) VALUES (?,?)",
+        roomType.getTypeName(),roomType.getTypePrice());
   }
 
   @Override
@@ -37,13 +38,13 @@ public class RoomTypeDAOImpl implements RoomTypeDAO {
   }
 
   @Override
-  public boolean delete(String key) throws Exception {
+  public boolean delete(Integer key) throws Exception {
     return CrudUtil.execute("DELETE FROM RoomType WHERE typeId=?", key);
   }
 
-  @Override
+/*  @Override
   public boolean saveRoomType(String name, double price) throws Exception {
     return CrudUtil.execute("INSERT INTO RoomType (typeName,typePrice) VALUES (?,?)",
         name, price);
-  }
+  }*/
 }

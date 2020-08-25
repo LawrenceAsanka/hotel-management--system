@@ -107,6 +107,7 @@ public class ReservationProcessController {
         if (!(newValue == null)) {
           try {
             //find the available rooms which are not reserved
+
             List<RoomTM> availableRooms = roomBO.getAvailableRooms(newValue.getRoomTypeId(), "Not-Reserved");
             ObservableList<RoomTM> rooms = FXCollections.observableArrayList(availableRooms);
             lstAvailableRoom.setItems(rooms);

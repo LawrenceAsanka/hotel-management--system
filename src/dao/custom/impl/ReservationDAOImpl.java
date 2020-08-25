@@ -16,6 +16,11 @@ public class ReservationDAOImpl implements ReservationDAO {
 
   @Override
   public Reservation find(String key) throws Exception {
+    ResultSet resultSet = CrudUtil.execute("SELECT * FROM Reservation WHERE resvId=?",key);
+    if (resultSet.next()) {
+      return new Reservation(resultSet.getString(1),resultSet.getDate(2),resultSet.getString(3),
+          resultSet.getDate(4),resultSet.getDate(5),resultSet.getString(6),resultSet.getString(7));
+    }
     return null;
   }
 

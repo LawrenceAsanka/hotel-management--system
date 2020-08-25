@@ -17,6 +17,10 @@ public class RoomType implements SuperEntity{
     this.typePrice = typePrice;
   }
 
+  public RoomType(String typeName, BigDecimal typePrice) {
+    this.typeName = typeName;
+    this.typePrice = typePrice;
+  }
 
   public int getTypeId() {
     return typeId;

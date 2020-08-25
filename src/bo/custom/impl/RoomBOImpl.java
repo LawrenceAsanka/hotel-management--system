@@ -61,12 +61,19 @@ public class RoomBOImpl implements RoomBO {
 
   @Override
   public List<RoomTM> getAvailableRooms(int typeId, String roomStatus) throws Exception {
-    List<Room> availableRooms = roomDAO.findAvailableRooms(typeId, roomStatus);
+    List<Room> all = roomDAO.findAll();
     List<RoomTM> rooms = new ArrayList<>();
+    for (Room allRooms : all) {
+      if (allRooms.getTypeId() == typeId && allRooms.getRoomStatus().equals(roomStatus)) {
+        rooms.add(new RoomTM(allRooms.getRoomNumber(),allRooms.getTypeId()+"",allRooms.getRoomStatus()));
+      }
+    }
+ /*   List<Room> availableRooms = roomDAO.findAvailableRooms(typeId, roomStatus);
+
     for (Room availableRoom : availableRooms) {
       rooms.add(new RoomTM(availableRoom.getRoomNumber(), availableRoom.getTypeId() + "", BigDecimal.valueOf(000.00),
           availableRoom.getRoomStatus()));
-    }
+    }*/
     return rooms;
   }
 

@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,7 +64,7 @@ public class GuestManagementController {
     cmbStatus.getItems().addAll("in", "out");
 
     //Wrong with delete button
-    btnDelete.setDisable(true);
+    //btnDelete.setDisable(true);
 
     //Column mapping
     tblGuestDetails.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("guestId"));
@@ -93,7 +94,7 @@ public class GuestManagementController {
         txtAddress.setText(newValue.getGuestAddress());
         cmbStatus.getSelectionModel().select(newValue.getGuestStatus());
 
-        btnDelete.setDisable(false);
+        //btnDelete.setDisable(false);
       }
     });
 
@@ -132,6 +133,8 @@ public class GuestManagementController {
         } else {
           new Alert(AlertType.INFORMATION, "Successfully deleted", ButtonType.OK).showAndWait();
         }
+      }catch (SQLIntegrityConstraintViolationException e){
+        new Alert(AlertType.ERROR,"Can not delete the guest.contact with IT",ButtonType.OK).showAndWait();
       } catch (Exception e) {
         e.printStackTrace();
       }

@@ -11,7 +11,7 @@ public interface RoomTypeBo extends SuperBO {
 
   public boolean saveRoomType(String name,double price)throws Exception;
 
-  public boolean deleteRoomType(String roomId)throws Exception;
+  public boolean deleteRoomType(String roomTypeId)throws Exception;
 
   public boolean updateRoomType(int id, String typeName, double typePrice)throws Exception;
 

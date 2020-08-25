@@ -21,7 +21,7 @@ public class RoomDAOImpl implements RoomDAO {
     }
   }
 
-  @Override
+ /* @Override
   public List<Room> findAvailableRooms(int typeId,String roomStatus) throws Exception {
     ResultSet rst = CrudUtil.execute("SELECT * FROM Room WHERE typeId=? AND roomStatus=?",typeId,roomStatus);
     List<Room> rooms = new ArrayList<>();
@@ -29,17 +29,22 @@ public class RoomDAOImpl implements RoomDAO {
       rooms.add(new Room(rst.getString(1),rst.getInt(2),rst.getString(3)));
     }
     return rooms;
-  }
+  }*/
 
-  @Override
+/*  @Override
   public boolean updateCheckoutRooms(Room room) throws Exception {
     return CrudUtil.execute("UPDATE Room SET roomStatus=? WHERE roomNumber=?",
         room.getRoomStatus(),room.getRoomNumber());
-  }
+  }*/
 
   @Override
   public List<Room> findAll() throws Exception {
-    return null;
+    ResultSet resultSet = CrudUtil.execute("SELECT * FROM Room");
+    List<Room> roomList =  new ArrayList<>();
+    while (resultSet.next()) {
+      roomList.add(new Room(resultSet.getString(1),resultSet.getInt(2),resultSet.getString(3)));
+    }
+    return roomList;
   }
 
   @Override

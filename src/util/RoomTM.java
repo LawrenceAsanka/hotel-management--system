@@ -20,6 +20,12 @@ public class RoomTM {
     this.setRoomStatus(roomStatus);
   }
 
+  public RoomTM(String roomNumber, String roomType, String roomStatus) {
+    this.roomNumber = roomNumber;
+    this.roomType = roomType;
+    this.roomStatus = roomStatus;
+  }
+
   public String getRoomNumber() {
     return roomNumber;
   }

@@ -18,6 +18,7 @@ import dao.custom.ReservationDetailDAO;
 import dao.custom.RoomDAO;
 import db.DBConnection;
 import entity.CheckOut;
+import entity.Guest;
 import entity.Reservation;
 import entity.ReservationDetail;
 import entity.Room;
@@ -46,21 +47,27 @@ public class CheckoutBOImpl implements CheckoutBO {
         return false;
       }
 
-      result = guestDAO.updateGuestStatus(reservation.getGuestId(), "out");
+      Guest guest = guestDAO.find(reservation.getGuestId());
+      guest.setGuestStatus("out");
+      result = guestDAO.update(guest);
       if (!result) {
         connection.rollback();
         return false;
       }
 
-      result = reservationDAO.update(new Reservation(reservation.getReservationId(),date,"",date,date,
-          userId,"check-out"));
+      Reservation reservation1 = reservationDAO.find(reservation.getReservationId());
+      reservation1.setStatus("check-out");
+      result = reservationDAO.update(reservation1);
       if (!result) {
         connection.rollback();
         return false;
       }
 
       for (RoomTM rooms : room) {
-        result = roomDAO.updateCheckoutRooms(new Room(rooms.getRoomNumber(), 0, "Not-Reserved"));
+        Room room1 = roomDAO.find(rooms.getRoomNumber());
+        room1.setRoomStatus("Not-Reserved");
+        result = roomDAO.update(room1);
+        //result = roomDAO.updateCheckoutRooms(new Room(rooms.getRoomNumber(), 0, "Not-Reserved"));
         if (!result) {
           connection.rollback();
           return false;

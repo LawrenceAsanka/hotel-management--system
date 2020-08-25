@@ -180,8 +180,8 @@ public class RoomManagementController {
     loadAllRoomTypes();
     clearRoomType();
   }
-  //Update room type
 
+  //Update room type
   public void btnRoomTypeUpdate_OnAction(ActionEvent actionEvent) {
     //Validation
     if (tblRoomType.getSelectionModel().isEmpty()) {
@@ -205,11 +205,11 @@ public class RoomManagementController {
     loadAllRoomTypes();
     clearRoomType();
   }
-  //Button for delete a room type
 
+  //Button for delete a room type
   public void btnRoomTypeDelete_OnAction(ActionEvent actionEvent) {
     //Validation
-    if (tblRoomDetails.getSelectionModel().isEmpty()) {
+    if (tblRoomType.getSelectionModel().isEmpty()) {
       new Alert(AlertType.ERROR, "You need to select a room type to delete", ButtonType.OK).showAndWait();
       return;
     }

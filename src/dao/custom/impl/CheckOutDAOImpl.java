@@ -14,15 +14,15 @@ public class CheckOutDAOImpl implements CheckOutDAO {
   }
 
   @Override
-  public CheckOut find(String key) throws Exception {
+  public CheckOut find(Integer key) throws Exception {
     return null;
   }
 
   @Override
   public boolean save(CheckOut checkOut) throws Exception {
-  return CrudUtil.execute("INSERT INTO CheckOut (resvId, userId, date, noOfNight, totalPrice) VALUES (?,?,?,?,?)",
-      checkOut.getResvId(),checkOut.getUserId(),checkOut.getDate(),checkOut.getNoOfNight(),
-      checkOut.getTotalPrice());
+    return CrudUtil.execute("INSERT INTO CheckOut (resvId, userId, date, noOfNight, totalPrice) VALUES (?,?,?,?,?)",
+        checkOut.getResvId(), checkOut.getUserId(), checkOut.getDate(), checkOut.getNoOfNight(),
+        checkOut.getTotalPrice());
   }
 
   @Override
@@ -30,8 +30,9 @@ public class CheckOutDAOImpl implements CheckOutDAO {
     return false;
   }
 
+
   @Override
-  public boolean delete(String key) throws Exception {
+  public boolean delete(Integer key) throws Exception {
     return false;
   }
 }
