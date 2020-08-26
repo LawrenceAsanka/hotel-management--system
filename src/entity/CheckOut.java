@@ -24,6 +24,14 @@ public class CheckOut implements SuperEntity{
     this.setTotalPrice(totalPrice);
   }
 
+  public CheckOut(String resvId, String userId, Date date, int noOfNight, BigDecimal totalPrice) {
+    this.resvId = resvId;
+    this.userId = userId;
+    this.date = date;
+    this.noOfNight = noOfNight;
+    this.totalPrice = totalPrice;
+  }
+
   public int getCheckOutId() {
     return checkOutId;
   }

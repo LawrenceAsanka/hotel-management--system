@@ -40,7 +40,7 @@ public class CheckoutBOImpl implements CheckoutBO {
     Connection connection = DBConnection.getInstance().getConnection();
     try {
       connection.setAutoCommit(false);
-      result = checkOutDAO.save(new CheckOut(0, reservation.getReservationId(), userId, date, dateCount,
+      result = checkOutDAO.save(new CheckOut(reservation.getReservationId(), userId, date, dateCount,
           BigDecimal.valueOf(reservation.getNetAmount().doubleValue() * dateCount)));
       if (!result) {
         connection.rollback();
